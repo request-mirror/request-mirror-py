@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Request-Mirror</title>
+
+</head>
+
+<body>
+<!-- Page Content -->
+
+<div class="container">
+    <section class="landing">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Ooops! That mirror does not exist!</h1>
+                <p class="lead">Return to the <a href="{{ url_for('index') }}">homepage</a> to create one</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script async src="{{ url_for('static', filename='dist/index.bundle.js') }}"></script>
+
+</body>
+
+</html>

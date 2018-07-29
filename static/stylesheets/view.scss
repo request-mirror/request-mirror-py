@@ -1,0 +1,15 @@
+@import '~bootstrap/scss/bootstrap';
+
+.logo a {
+  color: black;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.requests {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
