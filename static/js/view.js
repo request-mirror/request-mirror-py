@@ -14,7 +14,6 @@ class Requests extends React.Component {
     }
 
     _receiveRequest(request) {
-        console.log(request);
         const {requests} = this.state;
         requests.unshift(request);
         this.setState({requests});
