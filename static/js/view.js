@@ -1,12 +1,10 @@
 import '../stylesheets/view'
 import IO from 'socket.io-client'
-import RequestList from './components/requestlist'
+import RequestList from './components/RequestList'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import log from 'log'
 
 const socket = IO('http://localhost:5000');
-console.log(`Code: ${code}`);
 
 class Requests extends React.Component {
 
@@ -16,7 +14,7 @@ class Requests extends React.Component {
     }
 
     _receiveRequest(request) {
-        log("request: ", request);
+        console.log(request);
         const {requests} = this.state;
         requests.unshift(request);
         this.setState({requests});

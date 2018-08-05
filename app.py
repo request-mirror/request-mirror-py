@@ -39,6 +39,7 @@ def index():
 def view(code):
     if not code_exists(code):
         return render_template('404.html')
+    save_or_update(code)
     return render_template('view.html', code=code)
 
 

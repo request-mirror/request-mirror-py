@@ -17,8 +17,9 @@ def parse_request(request):
         'path': request.path,
         'body': request.get_data().decode('utf-8'),
         'form': request.form,
-        'query_string': str(request.args),
+        'query_string': request.args,
         'headers': dict(request.headers),
-        'time': datetime.now().isoformat(sep=' '),
-        'method': request.method
+        'time': datetime.now().isoformat(),
+        'method': request.method,
+        'remote_addr': request.headers.get('X-Forwarded-For', request.remote_addr)
     }

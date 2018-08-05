@@ -7,9 +7,11 @@
   }
 }
 
-.requests {
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
+.request-header {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+ul.request-attributes {
+  margin-bottom: 0;
 }
