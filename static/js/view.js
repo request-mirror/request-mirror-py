@@ -4,7 +4,7 @@ import RequestList from './components/RequestList'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const socket = IO('http://localhost:5000');
+const socket = IO(url_root);
 
 class Requests extends React.Component {
 

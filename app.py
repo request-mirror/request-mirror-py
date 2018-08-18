@@ -40,7 +40,7 @@ def view(code):
     if not mirror_exists(code):
         return render_template('404.html')
     create_or_update_mirror(code)
-    return render_template('view.html', code=code)
+    return render_template('view.html', code=code, url_root=request.url_root)
 
 
 @app.endpoint('process_request')
