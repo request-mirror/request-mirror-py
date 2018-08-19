@@ -101,7 +101,7 @@ Request Mirror can be configured using the following environment variables:
 
 **Environment variable**|**description**|**default**
 :-----:|:-----:|:-----:
-`REDIS_URL`| Heroku-style URL to connecto to Redis db|redis://localhost:6379
-`REDIS_MAX_CONNECTIONS`| Max. number of connections Request Mirror can make to Redis|`None`
-`EXPIRATION_TIME`| How long inactive mirrors should exist|24 hours
+`REDIS_URL`| Heroku-style URL to connect to Redis db|redis://localhost:6379
+`REDIS_MAX_CONNECTIONS`| Max. number of simultaneous connections Request Mirror can make to Redis|`None`
+`EXPIRATION_TIME`| How long inactive mirrors should exist (in seconds)|60 * 60 * 24 seconds (24 hours)
 `MAX_REQUESTS`| Max. number of requests Request Mirror should save per mirror before. Works like a FIFO queue|20
