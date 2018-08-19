@@ -1,17 +1,23 @@
+import os
 from werkzeug.contrib.fixers import ProxyFix
 from flask import Flask, render_template
 from flask import request, redirect
 from flask import url_for
 from flask_socketio import SocketIO, join_room, leave_room, emit
 from werkzeug.routing import Rule
+import eventlet
 
 from mirror.store import mirror_exists, generate_valid_code, create_or_update_mirror, push_request, get_all_requests
 from mirror.utils import parse_request
 
+eventlet.monkey_patch(socket=True)
+
+REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 app.wsgi_app = ProxyFix(app.wsgi_app)
-socketio = SocketIO(app)
+socketio = SocketIO(app, message_queue=REDIS_URL)
 
 # Regular routing
 
