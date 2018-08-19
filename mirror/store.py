@@ -1,10 +1,11 @@
+import os
 import redis
 import dill
 
 from mirror.utils import generate_code, gen_redis_config_dict
 
-EXPIRATION_TIME = 60 * 15
-MAX_REQUESTS = 20
+EXPIRATION_TIME = os.environ.get('RM_EXPIRATION_TIME', 60 * 60 * 24)
+MAX_REQUESTS = os.environ.get('RM_MAX_REQUESTS', 20)
 
 redis_conf = gen_redis_config_dict()
 redis_store = redis.StrictRedis(**redis_conf)

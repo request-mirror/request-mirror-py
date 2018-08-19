@@ -19,7 +19,7 @@ $ docker-compose up
 
 **Build the Docker Image yourself**
 
-This is optional, because the docker-compose file uses the [existing docker image](https://hub.docker.com/r/daan/request-mirror/) 
+This is optional, because the Docker Compose file uses the [existing docker image](https://hub.docker.com/r/daan/request-mirror/) 
 from Docker Hub.
 
 ```bash
@@ -35,7 +35,7 @@ If you want to use your locally built image, replace `daan/request-mirror:latest
 
 Request Mirror requires Redis to store active "mirrors". It expects Redis running on the default host and port: 
 `localhost:6379`. The provided Docker Compose file includes redis. During development, you can run it separately 
-without running request-mirror in Docker: `docker-compose up -d redis`
+without running Request Mirror in Docker: `docker-compose up -d redis`
 
 Request Mirror also requires [Yarn](https://yarnpkg.com/en/) to be installed. Installation instructions can be 
 [found here](https://yarnpkg.com/en/docs/install).
@@ -94,3 +94,14 @@ communication with the frontend.
 There are basically 2 views in Request Mirror: the home page and the mirror pages. Each of these views is served 
 separately from the backend, so the application as a whole is not a Single Page App. The mirror view/page however, is a 
 React app that is built and bundled using Yarn and [Parcel](https://parceljs.org/).
+
+## Configuration
+
+Request Mirror can be configured using the following environment variables:
+
+**Environment variable**|**description**|**default**
+:-----:|:-----:|:-----:
+`REDIS_URL`| Heroku-style URL to connecto to Redis db|redis://localhost:6379
+`REDIS_MAX_CONNECTIONS`| Max. number of connections Request Mirror can make to Redis|`None`
+`EXPIRATION_TIME`| How long inactive mirrors should exist|24 hours
+`MAX_REQUESTS`| Max. number of requests Request Mirror should save per mirror before. Works like a FIFO queue|20
