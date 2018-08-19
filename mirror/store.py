@@ -1,12 +1,13 @@
 import redis
 import dill
 
-from mirror.utils import generate_code
+from mirror.utils import generate_code, gen_redis_config_dict
 
 EXPIRATION_TIME = 60 * 15
 MAX_REQUESTS = 20
 
-redis_store = redis.StrictRedis(host='localhost', port=6379, db=0)
+redis_conf = gen_redis_config_dict()
+redis_store = redis.StrictRedis(**redis_conf)
 
 
 def mirror_exists(code):

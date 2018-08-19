@@ -4,7 +4,7 @@
   "description": "Debug requests in realtime",
   "scripts": {
     "clean": "rimraf static/dist",
-    "dev": "parcel watch static/js/*.js -d static/dist | python app.py",
+    "dev": "parcel watch static/js/*.js -d static/dist | FLASK_ENV=development python app.py",
     "build": "parcel build static/js/*.js -d static/dist"
   },
   "author": "Daan Debie",

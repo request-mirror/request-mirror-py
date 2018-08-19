@@ -1,3 +1,4 @@
+from werkzeug.contrib.fixers import ProxyFix
 from flask import Flask, render_template
 from flask import request, redirect
 from flask import url_for
@@ -9,7 +10,7 @@ from mirror.utils import parse_request
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-app.config['DEBUG'] = True
+app.wsgi_app = ProxyFix(app.wsgi_app)
 socketio = SocketIO(app)
 
 # Regular routing
@@ -83,4 +84,8 @@ def connect():
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    if app.config['ENV'] == 'production':
+        host = '0.0.0.0'
+    else:
+        host = '127.0.0.1'
+    socketio.run(app, host=host)

@@ -7,7 +7,29 @@ refresh the page.
 
 Request Mirror is an experiment, so little effort has been made to optimize performance. It also has _zero tests_.
 
-## How to run
+## How to run in Docker
+
+Install [Docker](https://www.docker.com/products/docker-desktop) if you haven't yet.
+
+**Run Redis + Request Mirror**
+
+```bash
+$ docker-compose up
+```
+
+**Build the Docker Image yourself**
+
+This is optional, because the docker-compose file uses the [existing docker image](https://hub.docker.com/r/daan/request-mirror/) 
+from Docker Hub.
+
+```bash
+$ docker build -t request-mirror:latest
+```
+
+If you want to use your locally built image, replace `daan/request-mirror:latest` in `docker-compose.yml` with 
+`request-mirror:latest`
+
+## How to run locally
 
 ### Install Dependencies
 
