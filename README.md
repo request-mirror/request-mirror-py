@@ -34,7 +34,8 @@ If you want to use your locally built image, replace `daan/request-mirror:latest
 ### Install Dependencies
 
 Request Mirror requires Redis to store active "mirrors". It expects Redis running on the default host and port: 
-`localhost:6379`. A Docker Compose file has been provided to run Redis. Just run: `docker-compose up -d`
+`localhost:6379`. The provided Docker Compose file includes redis. During development, you can run it separately 
+without running request-mirror in Docker: `docker-compose up -d redis`
 
 Request Mirror also requires [Yarn](https://yarnpkg.com/en/) to be installed. Installation instructions can be 
 [found here](https://yarnpkg.com/en/docs/install).
