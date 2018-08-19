@@ -17,6 +17,7 @@ socketio = SocketIO(app)
 
 # Catch-all methods rule
 app.url_map.add(Rule('/r/<code>', endpoint='process_request'))
+app.url_map.add(Rule('/r/<code>/<path:path>', endpoint='process_request'))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -45,7 +46,7 @@ def view(code):
 
 
 @app.endpoint('process_request')
-def process_request(code):
+def process_request(code, path=None):
     if not mirror_exists(code):
         return 'The mirror you tried to access, does not exist.', 404
     else:
