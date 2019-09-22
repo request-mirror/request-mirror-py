@@ -1,5 +1,5 @@
 import os
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware.proxy_fix import ProxyFix
 from flask import Flask, render_template
 from flask import request, redirect
 from flask import url_for
