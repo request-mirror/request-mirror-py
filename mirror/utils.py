@@ -18,12 +18,12 @@ def parse_request(request):
     return {
         'path': request.path,
         'body': request.get_data().decode('utf-8'),
-        'form': request.form,
-        'query_string': request.args,
+        'formParams': request.form,
+        'queryParams': request.args,
         'headers': dict(request.headers),
         'time': datetime.now().isoformat(),
         'method': request.method,
-        'remote_addr': request.headers.get('X-Forwarded-For', request.remote_addr)
+        'host': request.headers.get('X-Forwarded-For', request.remote_addr)
     }
 
 
