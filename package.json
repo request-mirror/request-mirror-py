@@ -27,7 +27,7 @@
     "@types/reactstrap": "^8.0.4",
     "@types/socket.io-client": "^1.4.32",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
